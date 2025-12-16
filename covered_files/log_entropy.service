@@ -1,0 +1,12 @@
+[Unit]
+Description=Allows us to log entropy
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/entropy_logger.sh
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target

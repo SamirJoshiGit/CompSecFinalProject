@@ -1,0 +1,13 @@
+[Unit]
+Description=seeding entropy from camera at boot
+DefaultDependencies=no
+After=local-fs.target
+Before=network.target ssh.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/capture_entropy.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=sysinit.target
